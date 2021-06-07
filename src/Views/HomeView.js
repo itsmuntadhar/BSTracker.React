@@ -9,14 +9,12 @@ const HomeView = () => {
     const [stats, setStats] = useState(null);
 
     const fetchBullshits = async (offset) => {
-        offset = offset || bullshits.length;
+        offset = 0; //offset || bullshits.length;
         try {
             let response = await remoteAPI.getBullshits(offset, "");
             if (offset === 0) setBullshits(response.data);
             else setBullshits([...bullshits, ...response.data]);
-        } catch (e) {
-            return [];
-        }
+        } catch {}
     };
 
     const fetchStats = () => remoteAPI.getStats().then((response) => setStats(response.data));
