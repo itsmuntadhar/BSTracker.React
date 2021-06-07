@@ -18,6 +18,7 @@ const remoteAPI = {
     getBullshits: (offset, name) => axiosInstance.get(`/bullshits/?offset=${offset}&name=${name}`),
     getBullshit: (id) => axiosInstance.get(`/bullshits/${id}`),
     addBullshit: (data) => axiosInstance.post("/bullshits", data),
+    getStats: () => axiosInstance.get("/bullshits/stats"),
 };
 
 export default remoteAPI;

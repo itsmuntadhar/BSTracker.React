@@ -6,7 +6,9 @@ const NewBullshitCard = () => {
     return (
         <Link to="/new">
             <BullshitCardBase className="h-full">
-                <p className="font-bold text-6xl text-gray-800 text-center">+</p>
+                <div className="flex flex-col justify-center h-full">
+                    <p className="font-bold text-6xl text-gray-800 text-center">+</p>
+                </div>
             </BullshitCardBase>
         </Link>
     );
