@@ -21,7 +21,7 @@ const BullshitView = (props) => {
         if (!bullshit) getBullshit();
     }, [bullshit]);
 
-    return (
+    return bullshit ? (
         <div className="relative bg-gray-50 border border-gray-100 rounded shadow-lg p-3" style={{ background: "linear-gradient(0deg, #f4f6f8f5, #e2a462f5)" }}>
             <p className="font-bold text-xl text-gray-700">
                 <span className="text-lg text-gray-600">التفاهة</span>
@@ -49,7 +49,7 @@ const BullshitView = (props) => {
                 <Emoji name="pile-of-poo" />
             </div>
         </div>
-    );
+    ) : <></>;
 };
 
 export default BullshitView;

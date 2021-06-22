@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import remoteAPI from "../API/remoteAPI";
 import BullshitCard from "../Components/BullshitCard";
 import NewBullshitCard from "../Components/NewBullshitCard";
+import BullshitCardBase from '../Components/BullshitCardBase';
 
 const HomeView = () => {
     const [bullshits, setBullshits] = useState([]);
     const [stats, setStats] = useState(null);
 
     const fetchBullshits = async (offset) => {
-        offset = 0; //offset || bullshits.length;
+        offset = offset || bullshits.length;
         try {
             let response = await remoteAPI.getBullshits(offset, "");
             if (offset === 0) setBullshits(response.data);
@@ -47,11 +48,11 @@ const HomeView = () => {
                             <BullshitCard bullshit={bullshit} />
                         </Link>
                     ))}
-                {/* <BullshitCardBase className="h-full">
+                <BullshitCardBase className="h-full">
                     <div className="flex flex-col justify-center h-full" onClick={() => fetchBullshits(null)}>
                         <p className="font-bold text-6xl text-gray-800 text-center">بعد</p>
                     </div>
-                </BullshitCardBase> */}
+                </BullshitCardBase>
             </div>
         </div>
     );
